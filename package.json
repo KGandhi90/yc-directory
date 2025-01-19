@@ -2,12 +2,16 @@
   "name": "yc-directory",
   "version": "0.1.0",
   "private": true,
+  "type": "module",
   "scripts": {
     "dev": "next dev --turbopack",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
-  },
+    "lint": "next lint",
+    "predev": "npm run typegen",
+    "prebuild": "npm run typegen",
+    "typegen": "sanity schema extract --path=./sanity/extract.json && sanity typegen generate"
+},
   "packageManager": "npm@10.5.2",
   "overrides": {
     "react": "$react",
@@ -20,7 +24,7 @@
     "@tailwindcss/typography": "^0.5.16",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
-    "lucide-react": "^0.471.1",
+    "lucide-react": "^0.234.0",
     "next": "15.1.4",
     "next-auth": "^5.0.0-beta.25",
     "next-sanity": "^9.8.29-canary.0",
